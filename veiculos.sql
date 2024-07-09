@@ -1,6 +1,8 @@
+CREATE DATABASE  IF NOT EXISTS `veiculos` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `veiculos`;
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: localhost    Database: escoladb
+-- Host: localhost    Database: veiculos
 -- ------------------------------------------------------
 -- Server version	8.0.36
 
@@ -16,30 +18,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `diciplinas_turmas`
+-- Table structure for table `carros`
 --
 
-DROP TABLE IF EXISTS `diciplinas_turmas`;
+DROP TABLE IF EXISTS `carros`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `diciplinas_turmas` (
-  `idTurma` int NOT NULL,
-  `idDiciplina` int NOT NULL,
-  PRIMARY KEY (`idTurma`,`idDiciplina`),
-  KEY `idDiciplina` (`idDiciplina`),
-  CONSTRAINT `diciplinas_turmas_ibfk_1` FOREIGN KEY (`idTurma`) REFERENCES `turmas` (`idTurma`),
-  CONSTRAINT `diciplinas_turmas_ibfk_2` FOREIGN KEY (`idDiciplina`) REFERENCES `diciplinas` (`idDiciplina`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `carros` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `marca` varchar(255) DEFAULT NULL,
+  `modelo` varchar(255) DEFAULT NULL,
+  `ano` int DEFAULT NULL,
+  `placa` char(7) DEFAULT NULL,
+  `cor` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `diciplinas_turmas`
+-- Dumping data for table `carros`
 --
 
-LOCK TABLES `diciplinas_turmas` WRITE;
-/*!40000 ALTER TABLE `diciplinas_turmas` DISABLE KEYS */;
-INSERT INTO `diciplinas_turmas` VALUES (1,1),(2,2),(3,3),(4,4),(5,5);
-/*!40000 ALTER TABLE `diciplinas_turmas` ENABLE KEYS */;
+LOCK TABLES `carros` WRITE;
+/*!40000 ALTER TABLE `carros` DISABLE KEYS */;
+INSERT INTO `carros` VALUES (1,'Toyota','Corolla',2022,'ABC1234','Preto'),(2,'Honda','Civic',2023,'XYZ5678','Branco'),(3,'Ford','Mustang',2021,'DEF2345','Vermelho'),(4,'Chevrolet','Camaro',2020,'GHI3456','Azul'),(5,'Volkswagen','Golf',2024,'JKL4567','Prata');
+/*!40000 ALTER TABLE `carros` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-07 21:41:36
+-- Dump completed on 2024-07-08 10:49:52
